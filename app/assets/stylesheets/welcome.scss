@@ -1,0 +1,39 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.header-cont {
+  max-width: 75%;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.index-header {
+  max-width: 90%;
+  margin:1% 5%;
+  padding: 1% 10%;
+}
+
+.heading-cont {
+  margin: 1% 5%;
+  padding: 1% 10%;
+}
+
+.cat-headers{
+  max-width: 100%;
+}
+
+.jumbotron.jumbo-content {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.jumbotron.action-text {
+  background-color: #91BEA8;
+}
+
+.action-text {
+  text-align: center;
+  vertical-align: middle;
+}
