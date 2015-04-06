@@ -1,2 +1,6 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1><%= @user.name %></h1>
+<%= link_to "New Wiki", new_wiki_path(@user, @wiki), class: 'btn btn-success' %>
+<%= render @wikis %>
+
+
+
