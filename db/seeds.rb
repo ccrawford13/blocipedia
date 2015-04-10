@@ -11,6 +11,34 @@ require 'faker'
 end
 users = User.all 
 
+admin = User.new(
+  name:        'Richard Pryor',
+  email:       'rick@example.com',
+  password:    'password',
+  role:        'admin'
+  )
+  admin.skip_confirmation!
+  admin.save!
+
+standard = User.new(
+  name:        'Robin Williams',
+  email:       'Robinwill@gmail.com',
+  password:    'password',
+  role:        'standard'
+  )
+  standard.skip_confirmation!
+  standard.save!
+
+premium = User.new(
+  name:        'Eddie Murphy',
+  email:       'notcharliemurphy@gmail.com',
+  password:    'password',
+  role:        'premium'
+  )
+  premium.skip_confirmation!
+  premium.save!
+
+
 100.times do
   wiki = Wiki.new(
     user:      users.sample,
@@ -22,7 +50,11 @@ end
 wikis = Wiki.all
 
 
+
+
 puts "Seeds Finished"
 puts "#{User.count} users were created"
 puts "#{Wiki.count} wikis were created"
-
+puts "#{admin.name}"
+puts "#{standard.name}"
+puts "#{premium.name}"
