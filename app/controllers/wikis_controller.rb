@@ -5,8 +5,7 @@ class WikisController < ApplicationController
   def index
   end
 
-  def show
-    authorize @wiki
+  def show 
   end
 
   def new
@@ -30,12 +29,10 @@ class WikisController < ApplicationController
 
   def edit
     @user = @wiki.user
-    authorize @wiki
   end
 
   def update
     @user = @wiki.user
-    authorize @wiki
 
     if @wiki.update_attributes( wiki_params )
       flash[:notice] = "Wiki was successfully updated"
@@ -49,7 +46,6 @@ class WikisController < ApplicationController
 
   def destroy
     @user = @wiki.user
-    authorize @wiki
 
     if @wiki.destroy
       flash[:notice] = "Wiki was successfully deleted"
@@ -65,6 +61,7 @@ class WikisController < ApplicationController
 
   def find_wiki
     @wiki = Wiki.find(params[:id])
+    authorize @wiki
     @wiki
   end
 
