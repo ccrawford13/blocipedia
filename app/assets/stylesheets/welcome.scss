@@ -2,11 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
 .header-cont {
-  max-width: 75%;
-  text-align: center;
-  vertical-align: middle;
+  max-width: 75%;  
 }
 
 .index-header {
@@ -18,13 +15,18 @@
 .heading-cont {
   margin: 1% 5%;
   padding: 1% 10%;
+  text-align: center;
 }
 
 .cat-headers{
   max-width: 100%;
+  margin-left: 8%;
+  position: relative;
+  left: 1em;
 }
 
 .jumbotron.jumbo-content {
+  margin: 1% 4% 1% 1%;
   text-align: center;
   vertical-align: middle;
 }
