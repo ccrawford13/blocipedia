@@ -27,8 +27,8 @@
             <li role="presentation"> <%= link_to "About", about_path %> </li>
             <% if current_user %>
               <li role="presentation"> <%= link_to "My Wikis", user_path(current_user) %> </li>
-            <% end %>
-            <div class="pull-right user-info"
+            <% end %> 
+            <div class="pull-right user-info">
               <% if current_user %>
                 Hello <%= (current_user.name || current_user.email) %>!
                 <%= link_to edit_user_registration_path, class: 'btn btn-primary btn-sm' do %>

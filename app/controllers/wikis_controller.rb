@@ -3,9 +3,10 @@ class WikisController < ApplicationController
   before_action :find_wiki, except: [:new, :create]
 
   def index
+
   end
 
-  def show 
+  def show
   end
 
   def new

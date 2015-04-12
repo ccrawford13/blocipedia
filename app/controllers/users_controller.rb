@@ -5,7 +5,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @wikis = @user.wikis
+    @wikis = @user.wikis.public_wikis(@user)
+    @private_wikis = Wiki.private_wikis(@user)
   end
 
   def update

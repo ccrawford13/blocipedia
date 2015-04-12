@@ -24,6 +24,7 @@ gem 'faker'
 gem 'devise'
 gem 'figaro'
 gem 'pundit'
+gem 'stripe'
 
 group :development do
   gem 'sqlite3', '~> 1.3.10'
