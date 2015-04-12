@@ -4,7 +4,9 @@
       <%= link_to wiki.title, wiki_path(wiki) %> 
     </div>
     <div class="col-md-1">
+    <% if policy(wiki).update? %>
       <%= link_to "Edit", edit_wiki_path(wiki) %>
+    <% end %>
     </div>
     <div class="col-md-1">
       <% if policy(wiki).destroy? %>

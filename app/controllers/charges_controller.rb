@@ -1,4 +1,6 @@
 class ChargesController < ActionController::Base
+  
+  before_action :validate_role
 
   def new
     @stripe_btn_data = {
@@ -37,6 +39,15 @@ class ChargesController < ActionController::Base
   def default_amount
     amount = 15_00
     amount
+  end
+
+  def validate_role
+    if current_user.role == 'standard'
+      true
+    else 
+      redirect_to user_path(current_user)
+      flash[:error] = "#{current_user.name} is already a Premium Member"
+    end
   end
 
 end

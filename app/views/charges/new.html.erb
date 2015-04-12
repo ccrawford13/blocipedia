@@ -1,4 +1,21 @@
-<!-- #add table to show pros of premium vs standard -->
+<div class="row">
+  <div class="col-md-4">
+    <h2>Blocipedia Free</h2><br>
+    <ul>
+      <li>Create Unlimited Public Wikis</li> 
+      <li>View and Edit Other Public Wikis</li>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <h2>Blocipedia Premium</h2><br/>
+    <h3>All of Blocipedia Free</h3> 
+    <ul>
+      <li>Create Unlimited Private Wikis</li> 
+      <li>Collaborate and Share Private Wikis</li>
+    </ul>
+  </div>
+</div>
+
 <%= form_tag charges_path do %>
   <h4>Click the Button!</h4>
   <script class='stripe-button' src="https://checkout.stripe.com/checkout.js" data-key= "<%= @stripe_btn_data[:key] %>" data-amount="<%= @stripe_btn_data[:amount] %>" data-description= "<%= @stripe_btn_data[:description] %>" ></script>

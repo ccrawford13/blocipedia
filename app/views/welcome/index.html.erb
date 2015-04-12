@@ -7,7 +7,9 @@
   <div class="container cont-border">
     <div class="jumbotron jumbo-content">
       <h2>Create and Share Markdown Wikis</h2> <br/>
-      <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary' %>
+      <% if current_user == nil %>
+        <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary' %>
+      <% end %>
     </div> 
   </div>
   <div class="container">
@@ -15,21 +17,25 @@
       <div class="col-md-4">
         <div class="container cat-headers">
           <div class="jumbotron action-text">
-            <h2>Explore</h2>
+            <h2><%= link_to "Explore", users_path  %></h2>
           </div> 
         </div> 
       </div>
       <div class="col-md-4">
         <div class="container cat-headers">
           <div class="jumbotron action-text">
-            <h2>Create</h2>
+            <h2><%= link_to "Create", new_wiki_path %></h2>
           </div> 
         </div> 
       </div>
       <div class="col-md-4">
         <div class="container cat-headers">
           <div class="jumbotron action-text">
-            <h2>Share</h2>
+            <% if current_user && (current_user.role == 'premium' || current_user.role == 'admin')  %>
+              <h2><%= link_to "Share", '#' %></h2>
+            <% else %>
+              <h2><%= link_to "Share", new_charge_path %></h2>
+            <% end %>
           </div> 
         </div> 
       </div>
