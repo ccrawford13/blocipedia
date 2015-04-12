@@ -20,7 +20,7 @@
       <% end %>
     </div>
   </div>
-  <% if current_user && current_user.role == 'premium' %>
+  <% if current_user == @user && current_user.role == 'premium' %>
     <div class="wiki-box">
       <div class="wiki-header">
         <h2>Private Wikis</h2>
