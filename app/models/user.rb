@@ -26,4 +26,5 @@ class User < ActiveRecord::Base
   def upgrade_account
     self.update_attributes(role: 'premium')
   end
+
 end

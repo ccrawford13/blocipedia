@@ -38,4 +38,5 @@ class ChargesController < ActionController::Base
     amount = 15_00
     amount
   end
+
 end

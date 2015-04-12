@@ -11,4 +11,10 @@ class UsersController < ApplicationController
 
   def update
   end
+
+  def downgrade_account
+    current_user.update_attributes(role: 'standard')
+    Wiki.private_wikis(@user).destroy_all
+    redirect_to edit_user_registration_path
+  end
 end
