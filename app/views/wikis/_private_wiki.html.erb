@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 col-md-offset-2">
-      <%= link_to private_wiki.title, wiki_path(wiki) %> 
+      <%= link_to (markdown_to_html private_wiki.title), wiki_path(wiki) %> 
     </div>
     <div class="col-md-1">
       <%= link_to "Edit", edit_wiki_path(wiki) %>

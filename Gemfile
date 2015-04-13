@@ -25,6 +25,7 @@ gem 'devise'
 gem 'figaro'
 gem 'pundit'
 gem 'stripe'
+gem 'redcarpet'
 
 group :development do
   gem 'sqlite3', '~> 1.3.10'

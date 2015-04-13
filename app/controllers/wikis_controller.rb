@@ -37,7 +37,7 @@ class WikisController < ApplicationController
 
     if @wiki.update_attributes( wiki_params )
       flash[:notice] = "Wiki was successfully updated"
-      redirect_to @user
+      redirect_to @wiki
 
     else
       flash[:error] = "Wiki could not be updated, please try again"

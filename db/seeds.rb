@@ -50,7 +50,8 @@ premium = User.new(
   wiki = Wiki.new(
     user:      users.sample,
     title:     Faker::Lorem.sentence,
-    body:      Faker::Lorem.paragraph
+    body:      Faker::Lorem.paragraph,
+    private:  false
     )
   wiki.save!
 end

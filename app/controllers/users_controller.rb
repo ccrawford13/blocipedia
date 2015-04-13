@@ -13,13 +13,8 @@ class UsersController < ApplicationController
   end
 
   def downgrade_account
-    Wiki.private_wikis(current_user).update_all(private: nil)
+    Wiki.private_wikis(current_user).update_all(private: false)
     current_user.update_attributes(role: 'standard')
     redirect_to edit_user_registration_path
-  end
-
-  def set_wikis_to_public
-    private_wikis = Wiki.private_wikis(current_user)
-    private_wikis.update_all(private: nil)
   end
 end
