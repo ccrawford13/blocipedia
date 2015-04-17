@@ -1,9 +1,9 @@
 class WikisController < ApplicationController
 
-  before_action :find_wiki, except: [:new, :create]
+  before_action :find_wiki, except: [:new, :create, :index]
 
   def index
-
+    @wikis = Wiki.all 
   end
 
   def show

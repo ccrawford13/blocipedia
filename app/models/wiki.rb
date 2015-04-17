@@ -3,5 +3,4 @@ class Wiki < ActiveRecord::Base
 
   scope :private_wikis, -> (user) { where(private: true) }
   scope :public_wikis, -> (user) { where(private: false) }
-
 end

@@ -20,7 +20,6 @@ describe "Edit user attributes" do
 
       fill_in "Password", with: 'newpassword'
       fill_in "Password confirmation", with: 'newpassword'
-      fill_in "Current password", with: ''
       click_button "Update"
       expect( page ).to have_content("Current password can't be blank")
     end
