@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   has_many :wikis
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  has_many :collaborations
+  has_many :collaborated_wikis, through: :collaborations, source: :wiki
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
@@ -26,5 +27,4 @@ class User < ActiveRecord::Base
   def upgrade_account
     self.update_attributes(role: 'premium')
   end
-
 end
