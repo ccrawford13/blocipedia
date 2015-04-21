@@ -1,15 +1,17 @@
 class WikisController < ApplicationController
 
-  before_action :find_wiki, except: [:new, :create]
+  before_action :find_wiki, except: [:new, :create, :index]
 
   def index
-
+    @wikis = policy_scope(Wiki)
   end
 
   def show
+    @collaborators = @wiki.collaborators
   end
 
   def new
+    @users = User.all
     @wiki = Wiki.new
     authorize @wiki
   end
@@ -30,6 +32,7 @@ class WikisController < ApplicationController
 
   def edit
     @user = @wiki.user
+    @users = User.all
   end
 
   def update
@@ -67,6 +70,6 @@ class WikisController < ApplicationController
   end
 
   def wiki_params
-    params.require(:wiki).permit(:title, :body, :private)
+    params.require(:wiki).permit(:title, :body, :private, collaborator_ids:[])
   end
 end
