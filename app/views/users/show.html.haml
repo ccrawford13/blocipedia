@@ -1,0 +1,20 @@
+.container.user
+  .user-text
+    - if current_user != @user
+      %h1
+        = @user.name
+  .wiki-box
+    .wiki-header
+      %h2 Public Wikis
+    = render @wikis
+  .row
+    .col-md-4.col-md-offset-5.user-btns
+      - if current_user == @user
+        = link_to "New Wiki", new_wiki_path(@user, @wiki), class: 'btn btn-success'
+      - if current_user.role == 'standard'
+        = link_to "Upgrade to Premium", new_charge_path, class: 'btn btn-success'
+  - if current_user.role == 'admin' || (current_user.role == 'premium' && current_user == @user)
+    .wiki-box
+      .wiki-header
+        %h2 Private Wikis
+      = render @private_wikis

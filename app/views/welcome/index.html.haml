@@ -1,0 +1,27 @@
+.container
+  .container.header-cont
+    .heading-cont
+      %h1 Blocipedia
+.container.cont-border
+  .jumbotron.jumbo-content
+    %h2 Create and Share Markdown Wikis
+    %br/
+    - if current_user == nil
+      = link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary'
+.container
+  .row
+    .col-md-4
+      .container.cat-headers
+        .jumbotron.action-text
+          %h2= link_to "Explore", wikis_path
+    .col-md-4
+      .container.cat-headers
+        .jumbotron.action-text
+          %h2= link_to "Create", new_wiki_path
+    .col-md-4
+      .container.cat-headers
+        .jumbotron.action-text
+          - if current_user && premium_or_admin(current_user)
+            %h2= link_to "Share", user_path(current_user)
+          - else
+            %h2= link_to "Share", new_charge_path

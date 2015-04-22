@@ -1,0 +1,28 @@
+= form_for [@wiki] do |f|
+  - if wiki.errors.any? 
+    .alert.alert-danger
+      %h4 
+        There are= pluralize(wiki.errors.count, "error")
+      %ul
+        - wiki.errors.full_messages.each do |msg|
+          %li 
+            = msg
+  .row
+    .col-md-9.col-md-offset-2
+      %h2 Please Use Markdown Text for Wikis
+      .form-group
+        = f.label :title
+        = f.text_field :title, class: 'form-control', placeholder: "Enter wiki title"
+      .form-group
+        = f.label :body
+        = f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter wiki body"
+      .form-group
+        - if premium_or_admin(current_user)
+          = f.check_box :private
+          %strong Private
+      .form-group
+        - if premium_or_admin(current_user)
+          = f.label :collaborators
+          = f.collection_check_boxes(:collaborator_ids, @users, :id, :name, class: 'check_box')
+      .form-group
+        = f.submit "Save", class: 'btn btn-success'

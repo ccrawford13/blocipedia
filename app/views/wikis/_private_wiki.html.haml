@@ -1,0 +1,8 @@
+.container
+  .row
+    .col-md-6.col-md-offset-2
+      = link_to (markdown_to_html private_wiki.title), wiki_path(wiki)
+    .col-md-1
+      - if policy(wiki).destroy?
+        link_to "Delete", [wiki], method: :delete
+          %br/
