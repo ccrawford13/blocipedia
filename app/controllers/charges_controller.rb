@@ -1,5 +1,5 @@
 class ChargesController < ActionController::Base
-  
+
   before_action :validate_role
 
   def new
@@ -12,7 +12,7 @@ class ChargesController < ActionController::Base
 
   def create
     #Set default ammount to $15 for Premium Account
-    @amount = 15_00 
+    @amount = 15_00
     customer = Stripe::Customer.create(
       email: current_user.email,
       card:  params[:stripeToken]
@@ -42,11 +42,16 @@ class ChargesController < ActionController::Base
   end
 
   def validate_role
-    if current_user.role == 'standard'
-      true
-    else 
-      redirect_to user_path(current_user)
-      flash[:error] = "#{current_user.name} is already a Premium Member"
+    if current_user
+      if current_user.role == 'standard'
+        true
+      else
+        redirect_to user_path(current_user)
+        flash[:error] = "#{current_user.name} is already a Premium Member"
+      end
+    else
+      redirect_to new_user_session_path
+      flash[:notice] = "You must be signed in to perform that action"
     end
   end
 
