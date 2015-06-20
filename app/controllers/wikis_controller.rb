@@ -3,7 +3,7 @@ class WikisController < ApplicationController
   before_action :find_wiki, except: [:new, :create, :index]
 
   def index
-    @wikis = policy_scope(Wiki)
+    @wikis = Kaminari.paginate_array(policy_scope(Wiki)).page(params[:page])
   end
 
   def show
@@ -15,7 +15,7 @@ class WikisController < ApplicationController
     @wiki = Wiki.new
     authorize @wiki
   end
-  
+
   def create
     @wiki = current_user.wikis.build( wiki_params )
     @user = @wiki.user

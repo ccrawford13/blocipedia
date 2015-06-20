@@ -27,6 +27,7 @@ gem 'pundit'
 gem 'stripe'
 gem 'redcarpet'
 gem 'haml'
+gem 'kaminari'
 
 group :development do
   gem 'sqlite3', '~> 1.3.10'
@@ -39,7 +40,7 @@ group :development, :test do
   gem 'capybara', '~> 2.4.4'
   gem 'factory_girl_rails', '~>4.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  gem 'spring', '~> 1.3.6'
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
 end
@@ -49,4 +50,3 @@ group :production do
   gem 'rails_12factor'
 
 end
-
