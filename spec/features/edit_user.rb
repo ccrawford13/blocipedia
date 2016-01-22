@@ -47,7 +47,7 @@ describe "Edit user attributes" do
       fill_in "Password confirmation", with: 'newpassword'
       fill_in "Current password", with: @user.password
       click_button "Update"
-      expect( current_path ).to eq(root_path)
+      expect( current_path ).to eq(root_path) #I'd like to test expect( flash[:notice] ).to eq "User was updated successfully"
     end
 
   end
